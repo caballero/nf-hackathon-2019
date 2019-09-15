@@ -1,0 +1,58 @@
+!!Exomiser
+
+!!!Program Version
+*10.0.1
+
+!!!Databiology Application Version
+*3.1.5
+
+!!!Description
+The Exomiser is a program that finds potential disease-causing variants from whole-exome or whole-genome sequencing data.
+
+Starting from a VCF file and a set of phenotypes encoded using the Human Phenotype Ontology (HPO) it will annotate, filter and prioritize likely causative variants. The program does this based on user-defined criteria such as a variant's predicted pathogenicity, frequency of occurrence in a population and also how closely the given phenotype matches the known phenotype of diseased genes from human and model organism data.
+
+The functional annotation of variants is handled by Jannovar and uses UCSC KnownGene transcript definitions and hg19 genomic coordinates.
+
+Variants are prioritized according to user-defined criteria on variant frequency, pathogenicity, quality, inheritance pattern, and model organism phenotype data. Predicted pathogenicity data is extracted from the dbNSFP resource. Variant frequency data is taken from the 1000 Genomes, ESP and ExAC datasets. Subsets of these frequency and pathogenicity data can be defined to further tune the analysis. Cross-species phenotype comparisons come from PhenoDigm tool powered by the OWLTools OWLSim algorithm.
+
+!!!Supported architectures
+*ppc64le
+*x86_64
+
+!!!Input files
+*VCF files (can be compressed, will be uncompressed before run).
+
+!!!Output files
+*HTML
+*TSV
+*VCF
+
+!!!Parameters
+||
+Name|Description|Values|Default
+Full analysis|Perform full analysis|Active, Inactive|Inactive
+Max. frequency|Filter candidates by this frequency in populations|A number between 0.0 to 100.0|100.0
+Restrict interval|Restrict interval for analysis|<user defined>|<none>
+Min. quality|Minimal quality for variants|A number >0|0
+Keep non pathogenic|Keep non pathogenic candidates in results|Active, Inactive|Inactive
+Remove known variants|Remove known variants in results|Active, Inactive|Inactive
+Keep off target|Keep off target|<user defined>|<none>
+Inheritance mode|Specify an inheritance mode|AD (autosomal dominant), AR (autosomal recessive), X (X recessive), or empty for UNDEFINED|<none>
+Prioritiser|Set a prioritizer for variants|hiphive, phenix, phive, exomewalker, none|none
+HPO ids|HPO identifiers separated by commas, e.g. HP:0001156, HP:0001363, HP:0011304, HP:0010055|<user defined>|<none>
+Seed genes|Seed genes ids in interactome separated by commas, e.g. 2260|<user defined>|<none>
+Disease ids|OMIM Disease identifiers, e.g. OMIM:101500|<user defined>|<none>
+Candidate gene|Specify candidate gene symbols separated by commas, e.g. FGFR2|<user defined>|<none>
+Pass-Variants only|Output PASS_ONLY variant (reduces time and memory)|Active, Inactive|Active
+Num. genes|Number of genes to show, if empty or 0 it will show all|An integer number > 0|0
+Out format|Out format options, it can be multiple outputs: HTML,TSV-GENE,VCF|HTML, VCF, TSV-VARIANT, TSV-GENE|HTML
+||
+
+!!!License
+[https://opensource.org/licenses/AGPL-3.0|GNU Affero General Public License v3.0]
+
+!!!External link
+[http://www.sanger.ac.uk/science/tools/exomiser|Homepage]
+
+---
+Go back to ((Curated Applications|Curated Applications)) or to the ((Home page|Home page))
